@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-<!-- load blog_extras -->
+{% load blog_extras %}
+
 {% block content %}
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
        <div class="container-fluid">
@@ -31,13 +32,13 @@
 
           <!-- <small>By  post.author|author_details:request.user  on post.published_at|date:"M, d Y" </small> -->
        {% row  "border-bottom" %}
-       <div class="col">
+         <div class="col">
           <h3>{{ post.title }}</h3>
            {% include "blog/post-byline.html" %}
            <p>{{ post.summary }}</p>
            <p>({{ post.content|wordcount }} words)<a href="{% url "blog-post-detail" post.slug%}">Read More</a>
            </p>
-       </div>
+         </div>
        {% endrow %}
     {% endfor %}
     <ul class="pagination">
