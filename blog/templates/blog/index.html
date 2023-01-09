@@ -23,9 +23,21 @@
        </div>
     </nav>
     <div class="row">
-        <div class="col bg-primary">Column 1</div>
+        <div class="col bg-primary  " >Column 1</div>
         <div class="col bg-danger">Column 2</div>
         <div class="col bg-success">Column 3</div>
+    </div>
+
+    <div class="row">
+        <div class="w-25 p-3 bg-primary" >Column 1</div>
+        <div class="w-25 p-3 bg-danger" >Column 2</div>
+        <div class="w-50 p-3 bg-success ">Column 3</div>
+    </div>
+    <div class="row">
+      <div class=" bg-primary" style="width: 25%">col1</div>
+     <div class="col-lg-4 bg-danger" style="width:25% ">col2</div>
+    <div class="col-lg-4 bg-success" style="width: 50%">col3 </div>
+
     </div>
     <h2>Blog Posts</h2>
     {% for post in posts %}
