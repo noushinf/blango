@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+{% if post.author.profile %}
+
+          <h4>About the author</h4>
+          <p>{{ post.author.profile.bio }}</p>
+
+{% endif %}
+
 {% include "blog/post-comments.html" %}
 {% load blog_extras cache %}
 
