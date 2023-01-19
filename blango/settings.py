@@ -37,6 +37,7 @@ SESSION_COOKIE_SAMESITE = 'None'
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'blog',
     'debug_toolbar',
     'blango_auth',
+
 
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -132,6 +134,8 @@ USE_L10N = True
 USE_TZ = True
 INTERNAL_IPS = ["192.168.11.179"]
 AUTH_USER_MODEL = "blango_auth.User"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+ACCOUNT_ACTIVATION_DAYS = 7
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
