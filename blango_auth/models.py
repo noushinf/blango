@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 from django.apps import apps
 from django.contrib import auth
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
@@ -52,3 +53,8 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+class B(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+                                on_delete=models.CASCADE, related_name="profile")

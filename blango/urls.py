@@ -31,6 +31,7 @@ if settings.DEBUG:
         # path("accounts/", include("django.contrib.auth.urls")),
         path("accounts/profile/", blango_auth.views.profile, name="profile"),
         path("accounts/", include("django_registration.backends.activation.urls")),
+        path("api/v1/", include("blog.api_urls")),
         path(
             "accounts/register/",
             RegistrationView.as_view(form_class=BlangoRegistrationForm),
