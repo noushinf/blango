@@ -6,7 +6,7 @@ from blog.models import Post
 from api.permissions import AuthorModifyOrReadOnly
 from rest_framework import permissions
 from api.permissions import AuthorModifyOrReadOnly, IsAdminUserForObject
-from api.serializers import PostSerializer, UserSerializer
+from api.serializers import PostSerializer, UserSerializer, PostDetailSerializer
 
 
 class PostList(generics.ListCreateAPIView):
@@ -26,3 +26,10 @@ class UserDetail(generics.RetrieveAPIView):
     lookup_field = "email"
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [AuthorModifyOrReadOnly |
+                          IsAdminUserForObject]
+    queryset = Post.objects.all()
+    serializer_class = PostDetailSerializer
