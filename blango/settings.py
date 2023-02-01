@@ -51,8 +51,16 @@ INSTALLED_APPS = [
     'blango_auth',
     'rest_framework.authtoken',
     'rest_framework',
+    'drf_yasg',
+
 
 ]
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+        "Basic": {"type": "basic"},
+    }
+}
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.BasicAuthentication",
