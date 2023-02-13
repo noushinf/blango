@@ -66,8 +66,20 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
-    ]
-}
+    ],
+    "DEFAULT_THROTTLE_CLASSES": [
+        "api.throttling.AnonSustainedThrottle",
+        "api.throttling.AnonBurstThrottle",
+        "api.throttling.UserSustainedThrottle",
+        "api.throttling.UserBurstThrottle",
+    ],
+    "DEFAULT_THROTTLE_RATES": {
+        "anon_sustained": "500/day",
+        "anon_burst": "10/minute",
+        "user_sustained": "5000/day",
+        "user_burst": "100/minute",
+    },
+  }
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
