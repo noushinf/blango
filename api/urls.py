@@ -9,7 +9,6 @@ import os
 from rest_framework.routers import DefaultRouter
 from api.views import UserDetail, TagViewSet, PostViewSet
 
-
 router = DefaultRouter()
 router.register("tags", TagViewSet)
 
@@ -22,7 +21,6 @@ schema_view = get_schema_view(
     url=f"https://{os.environ.get('CODIO_HOSTNAME')}-8000.codio.io/api/v1/",
     public=True,
 )
-
 
 # urlpatterns = format_suffix_patterns(urlpatterns)
 urlpatterns = [
@@ -39,6 +37,9 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     path("", include(router.urls)),
+    path("posts/by-time/<str:period_name>/", PostViewSet.as_view({"get": "list"}), name="posts-by-time", ),
+
+
 ]
 urlpatterns = [
     path("users/<str:email>", UserDetail.as_view(), name="api_user_detail"),
